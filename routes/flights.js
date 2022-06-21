@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+
+
+const flightsCtrl = require('..controllers/flights')
+
+
 module.exports = router;
