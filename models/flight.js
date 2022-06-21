@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const flightSchema = new Schema({
-    airline: string,
-    airport: string,
+    airline: String,
+    airport: String,
     flightNo: Number,
     departs: Date,
 })
