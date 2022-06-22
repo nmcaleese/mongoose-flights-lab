@@ -1,8 +1,10 @@
+// const { create } = require('../models/flight');
 const Flight = require('../models/flight');
 
 module.exports = {
     index,
     new: newFlight,
+    create,
 }
 
 function index(req, res){
@@ -13,4 +15,18 @@ function index(req, res){
 
 function newFlight(req, res) {
     res.render('flights/new', {title: 'Add Flight'});
+}
+
+function create(req, res) {
+    // reformatting
+    req.body.flightNo = req.body.flightNo.replace(/\s/g, '')
+    //create new movie with Flights
+    let flight = new Flight(req.body);
+    flight.save(function(err){
+        if (err) return res.redirect('/flights/new')
+        console.log(flight);
+    })
+    console.log(flight)
+    // req.body.airport = 
+    res.redirect('/flights')
 }
