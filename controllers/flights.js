@@ -15,9 +15,9 @@ function index(req, res) {
 }
 
 function newFlight(req, res) {
-    let today = new Date()
-    let defaultDate = today.toISOString().slice(0,16)
-    res.render("flights/new", { title: "Add Flight" , defaultDate});
+  let today = new Date();
+  let defaultDate = today.toISOString().slice(0, 16);
+  res.render("flights/new", { title: "Add Flight", defaultDate });
 }
 
 function create(req, res) {
@@ -25,14 +25,14 @@ function create(req, res) {
   req.body.flightNo = req.body.flightNo.replace(/\s/g, "");
   //create new  with Flights
   let flight = new Flight(req.body);
-  flight.save(function(err) {
+  flight.save(function (err) {
     if (err) return res.redirect("/flights/new");
     res.redirect("/flights");
   });
 }
 
-function show(req, res){
-  Flight.findById(req.params.id, function(err, flight){
-    res.render('flights/show', {title: 'Flight Detail', flight})
+function show(req, res) {
+  Flight.findById(req.params.id, function (err, flight) {
+    res.render("flights/show", { title: "Flight Detail", flight });
   });
 }
