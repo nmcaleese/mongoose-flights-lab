@@ -11,6 +11,14 @@
   <div><%= flight.departs %></div>
 </section>
 <br />
+
+<h2>Tickets Sold</h2>
+<section id="badge-container">
+  <% tickets.forEach(function(ticket) { %>
+  <article class="badge"><%= ticket.seat %></article>
+  <% }) %>
+</section>
+
 <br />
 <% if (flight.destination.length) { %>
 <table>
@@ -36,11 +44,7 @@
 <% } %>
 
 <br /><br />
-<section id="badge-container">
-  <% tickets.forEach(function(ticket) { %>
-  <article class="badge"><%= ticket.seat %></article>
-  <% }) %>
-</section>
+
 <br />
 <h2>Destinations</h2>
 <form
