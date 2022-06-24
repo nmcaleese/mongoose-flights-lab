@@ -36,6 +36,11 @@
 <% } %>
 
 <br /><br />
+<section id="badge-container">
+  <% tickets.forEach(function(ticket) { %>
+  <article class="badge"><%= ticket.seat %></article>
+  <% }) %>
+</section>
 <br />
 <h2>Destinations</h2>
 <form

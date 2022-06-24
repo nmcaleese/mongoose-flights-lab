@@ -11,13 +11,13 @@
 
 <form id="add-ticket-form" action="/tickets" method="POST">
   <label>Seat Number:</label>
-  <input type="text" name="seat" />
+  <input type="text" name="seat"/>
   <label>Price:</label>
   <input type="number" name="price" />
   <label>Flight:</label>
   <select name="flight">
     <% flights.forEach(function(flight) { %>
-    <option value="flight">
+    <option value="<%= flight._id %>">
       Flight Number: <%= flight.flightNo %> out of <%= flight.airport %>
     </option>
     <% }); %> 
