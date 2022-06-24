@@ -11,7 +11,13 @@
   <div><%= flight.departs %></div>
 </section>
 <br />
-
+<form
+  id="add-ticket-form"
+  method="GET"
+  action="/tickets/new/"
+>
+  <input type="submit" value="Add ticket" />
+</form>
 <h2>Tickets Sold</h2>
 <section id="badge-container">
   <% tickets.forEach(function(ticket) { %>
