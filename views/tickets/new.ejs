@@ -1,20 +1,28 @@
 <%- include('../partials/header') %>
 
-<div>Before adding, please ensure that the Ticket has not already been added:</div>
+<div>
+  Before adding, please ensure that the Ticket has not already been added:
+</div>
 <section id="badge-container">
   <% tickets.forEach(function(ticket) { %>
-    <article class="badge"><%= ticket.seat %></article>
+  <article class="badge"><%= ticket.seat %></article>
   <% }) %>
 </section>
 
 <form id="add-ticket-form" action="/tickets" method="POST">
   <label>Seat Number:</label>
-  <input type="text" name="seat">
+  <input type="text" name="seat" />
   <label>Price:</label>
-  <input type="number" name="price">
+  <input type="number" name="price" />
   <label>Flight:</label>
-  <input type="text" name="flight">
-  <input type="submit" value="Add Ticket">
+  <select name="flight">
+    <% flights.forEach(function(flight) { %>
+    <option value="flight">
+      Flight Number: <%= flight.flightNo %> out of <%= flight.airport %>
+    </option>
+    <% }); %> 
+  </select>
+  <input type="submit" value="Add Ticket" />
 </form>
 
 <%- include('../partials/footer') %>
